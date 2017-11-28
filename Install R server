@@ -4,3 +4,27 @@ https://aws.amazon.com/fr/blogs/big-data/running-r-on-aws/
 1- launch an EC2 instance : parameters by default
 1.1- don't forget to enable access internet to subnet
 1.2 - USER DATA : 
+#!/bin/bash
+#install R
+yum install -y R
+
+#install RStudio-Server 1.0.153 (2017-07-20)
+wget https://download2.rstudio.org/rstudio-server-rhel-1.0.153-x86_64.rpm
+yum install -y --nogpgcheck rstudio-server-rhel-1.0.153-x86_64.rpm
+rm rstudio-server-rhel-1.0.153-x86_64.rpm
+
+
+#add user(s)
+useradd M64
+echo username:M64 | chpasswd 
+
+1.3 - security group : you need to open port 8787 TCP and precise Source from 'anywhere'
+
+2 - after launching you need to connect your server with help of putty
+don't forget the key
+
+3 - in a browser enter this adress : ec2-52-208-179-219.eu-west-1.compute.amazonaws.com:8787
+
+Be careful the adresse may change by relaunching the instance
+
+4 - have fun with Rstudio!
