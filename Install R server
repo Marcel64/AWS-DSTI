@@ -1,0 +1,6 @@
+Don't hesitate to use this article
+https://aws.amazon.com/fr/blogs/big-data/running-r-on-aws/
+
+1- launch an EC2 instance : parameters by default
+1.1- don't forget to enable access internet to subnet
+1.2 - USER DATA : 
